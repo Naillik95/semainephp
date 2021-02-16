@@ -33,8 +33,7 @@
                         <button class="dropdown-item" id="films">Films</button>
                         <button class="dropdown-item" id="series">Series</button>
                         <button class="dropdown-item" id="jeux">Jeux</button>
-                        <button class="dropdown-item" id="mangas">Mangas
-                        </button>
+                        <button class="dropdown-item" id="mangas">Mangas</button>
                     </div>
                 </li>
                 <li class="nav-item">

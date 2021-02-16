@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -15,39 +14,8 @@
 <body>
 
 <?php
-    include("navBar.php");
+include("navBar.php");
 ?>
-
-    <!-- Modale -->
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Mon Panier</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- TESTS POUR LA FENETRE MODALE -->
-                    <section class="container content-section">
-                        <div class="cart-items"></div>
-                        <div class="cart-total"></div>
-                    </section>
-                </div>
-                <div class="modal-footer">
-                    <!-- Pour le total  -->
-                    <div id="totalCount">
-                        <span class="cart-total-title font-weight-bold">Total</span>
-                        <span class="cart-total-price">€</span>
-                    </div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button class="btn btn-primary btn-purchase" type="button">Acheter</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 <!-- /container -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('bdd.php');
 // Inscription
 // Vérification de la validité des informations
@@ -35,7 +36,7 @@ if (isset($_POST['nom'], $_POST['prenom'], $_POST['emailInscription'], $_POST['p
 //  Récupération de l'utilisateur et de son pass hashé
 if (isset($_POST['emailConnexion'], $_POST['passwordConnexion'])) {
     $emailConnexion = $_POST['emailConnexion'];
-    $reponse = $bdd->prepare('SELECT email, password FROM user WHERE email = :email');
+    $reponse = $bdd->prepare('SELECT email, password, firstname FROM user WHERE email = :email');
     $reponse->execute(array(
         ':email' => $emailConnexion));
     $resultat = $reponse->fetch();
@@ -45,8 +46,15 @@ if (isset($_POST['emailConnexion'], $_POST['passwordConnexion'])) {
 
     if ($isPasswordCorrect) {
         $_SESSION['email'] = $resultat['email'];
-        header('Location: index.php');
-        exit();
+        $_SESSION['firstname'] = $resultat['firstname'];
+        if ($reponse = $bdd->prepare('SELECT firstname FROM user WHERE status = "a"')) {
+            $reponse->fetch();
+            header('Location: admin.php');
+
+        } else {
+            header('Location: index.php');
+
+        }
     } else {
         echo "<script>alert(\"Mauvais identifiant ou mot de passe !\")</script>";
     }

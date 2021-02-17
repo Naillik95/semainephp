@@ -31,15 +31,17 @@
                         Nos Produits
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="">Tous les articles</a>
-                        <button class="dropdown-item" id="films">Films</button>
-                        <button class="dropdown-item" id="series">Series</button>
-                        <button class="dropdown-item" id="jeux">Jeux</button>
-                        <button class="dropdown-item" id="mangas">Mangas</button>
+                        <a class="dropdown-item" href="all.php">Tous les articles</a>
+                        <a class="dropdown-item" href="moovies.php">Films</a>
+                        <a class="dropdown-item" href="series.php">Series</a>
+                        <a class="dropdown-item" href="games.php">Jeux</a>
+                        <a class="dropdown-item" href="mangas.php">Mangas</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="navBar.php">Déconnexion</a>
+                    <form method="post" action="formDeconnexion.php">
+                        <input type="submit" name="submit" class="deconnexion btn btn-outline-primary" value="Se déconnecter">
+                    </form>
                 </li>
             </ul>
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" data-toggle="modal"

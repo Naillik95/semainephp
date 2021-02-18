@@ -38,6 +38,10 @@
                         <a class="dropdown-item" href="mangas.php">Mangas</a>
                     </div>
                 </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="histCommande.php">Historiques</a>
+                </li>
                 <li class="nav-item">
                     <form method="post" action="formDeconnexion.php">
                         <input type="submit" name="submit" class="deconnexion btn btn-outline-primary" value="Se déconnecter">

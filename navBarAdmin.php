@@ -38,6 +38,12 @@
                         <a class="dropdown-item" href="mangas.php">Mangas</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ajoutP.php">Ajouter un produit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="navBar.php">Déconnexion</a>
+                </li>
                 <li class="nav-item active">
                     <a class="nav-link dropdown-toggle" href="admin.php" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tableau de Bord</a>

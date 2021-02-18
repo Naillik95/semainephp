@@ -20,7 +20,8 @@ $reponse = $bdd->query('SELECT id, categorie FROM categorie');
                 }
                 ?>
             </select>
-        </p> <br>
+        </p>
+        <br>
 
         <label for="prix" class="ml-5">Prix du produit :</label>
         <input type="text" name="price" required><br><br>
@@ -35,14 +36,20 @@ if (isset($_POST['name'], $_POST['price'], $_POST['categorie'])) {
     $price = $_POST['price'];
     $categorie = $_POST['categorie'];
 
-    $req = $bdd->prepare('INSERT INTO product (name, price, categorie) VALUES (:name, :price, :categorie)');
-    $req->execute(array(
-        ':name' => $name,
-        ':price' => $price,
-        ':categorie' => $categorie
-    ));
-    ?>
-    <script> location.replace("productSection.php"); </script>
-    <?php
+    $rep = $bdd->query('SELECT name, categorie FROM product WHERE name = "' . $_POST['name'] . '" AND categorie = "' . $_POST['categorie'] . '"');
+    $donnee = $rep->fetch();
+    if ($donnee) {
+        echo "<script>alert(\"Ce produit existe déjà\")</script>";
+    } else {
+        $req = $bdd->prepare('INSERT INTO product (name, price, categorie) VALUES (:name, :price, :categorie)');
+        $req->execute(array(
+            ':name' => $name,
+            ':price' => $price,
+            ':categorie' => $categorie
+        ));
+        ?>
+        <script> location.replace("productSection.php"); </script>
+        <?php
+    }
 }
 ?>

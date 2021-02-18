@@ -13,12 +13,18 @@ require('bdd.php');
 
 <?php
 if (isset($_POST['categorie'])) {
-    $req = $bdd->prepare('INSERT INTO categorie (categorie) VALUES (:categorie)');
-    $req->execute(array(
-        ':categorie' => $_POST['categorie']
-    ));
-    ?>
-    <script> location.replace("categorySection.php"); </script>
-    <?php
+    $rep = $bdd->query('SELECT id, categorie FROM categorie WHERE categorie = "' . $_POST['categorie'] . '"');
+    $donnee = $rep->fetch();
+    if ($donnee) {
+        echo "<script>alert(\"Cette catégorie existe déjà\")</script>";
+    } else {
+        $req = $bdd->prepare('INSERT INTO categorie (categorie) VALUES (:categorie)');
+        $req->execute(array(
+            ':categorie' => $_POST['categorie']
+        ));
+        ?>
+        <script> location.replace("categorySection.php"); </script>
+        <?php
+    }
 }
 ?>

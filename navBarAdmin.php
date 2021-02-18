@@ -47,7 +47,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="productSection.php">Partie Produit</a>
                         <a class="dropdown-item" href="categorySection.php">Partie Catégorie</a>
-                        <a class="dropdown-item" href="">Partie Utilisateur</a>
+                        <a class="dropdown-item" href="userSection.php">Partie Utilisateur</a>
                     </div>
                 </li>
                 <li class="nav-item">

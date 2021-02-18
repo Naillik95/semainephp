@@ -7,7 +7,7 @@ $donnees = $reponse->fetch();
 ?>
 
     <form method="post" action="#">
-        <p>Etes vous sûr de bien vouloir supprimer cette catégorie : <?= $donnees['categorie'] ?> ?</p>
+        <p>Etes vous sûr de bien vouloir supprimer cette catégorie : <?php echo $donnees['categorie'] ?> ?</p>
         <input name="categorie" class="btn btn-danger" type="submit" value="Supprimer">
     </form>
 

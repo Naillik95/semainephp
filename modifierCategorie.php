@@ -7,7 +7,7 @@ $donnees = $reponse->fetch();
 ?>
 
     <form method="post" action="#">
-        <input type="text" name="categorie" value="<?= $donnees['categorie'] ?>">
+        <input type="text" name="categorie" value="<?php echo $donnees['categorie'] ?>">
         <input class="btn btn-primary" type="submit" value="modifier">
     </form>
 

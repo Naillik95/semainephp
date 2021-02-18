@@ -33,12 +33,15 @@
                         <a class="dropdown-item" href="all.php">Tous les articles</a>
                         <?php
                         require_once('bdd.php');
-                        $query = $bdd->prepare("SELECT categorie FROM categorie");
+                        $query = $bdd->prepare("SELECT categorie, id FROM categorie");
                         $query->execute();
                         $data = $query->fetchAll();
                         for ($i = 0; $i < count($data); $i++) {
                             $element = $data[$i]["categorie"];
-                            echo "<a class='dropdown-item' href='$element.php'>$element</a>";
+                            $id = $data[$i]['id'];
+                            ?>
+                            <a class='dropdown-item' href='defaultCategory.php?id_category=<?php echo $id ?>'><?php echo $element ?></a>
+                            <?php
                         }
                         ?>
                     </div>

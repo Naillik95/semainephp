@@ -13,17 +13,21 @@ require('session.php');
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://fonts.googleapis.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Mangas</title>
+    <title>Jeux</title>
 </head>
 
 <body>
 
 <div class="box">
     <?php
-    $query = $bdd->prepare("SELECT p.id, price, name, c.categorie FROM product as p, categorie as c WHERE p.categorie LIKE c.id AND c.categorie LIKE 'Manga'");
+    $id_category = $_GET['id_category'];
+
+    $query = $bdd->prepare('SELECT * FROM product as p, categorie as c WHERE p.categorie = c.id AND p.categorie = "' . $id_category . '"');
     $query->execute();
     $data = $query->fetchAll();
+    ?>
 
+    <?php
     for ($i = 0; $i < count($data); $i++) {
         $element = $data[$i]["categorie"];
         $name = $data[$i]["name"];
@@ -32,7 +36,7 @@ require('session.php');
 
         $replace = str_replace(" ", "_", $name);
         ?>
-        <div class="border">
+        <div class="border mt-5">
             <div>
                 <img src="img/<?php echo $replace ?>.jpg" height="250px" width="190px">
                 <?php
@@ -40,7 +44,7 @@ require('session.php');
                     ?>
                     <div>
                         <a href="cart?id=<?php echo $id ?>.php" class="btn btn-primary mt-2"> Acheter <i
-                                    class="fa fa-shopping-cart"></i></a>
+                                class="fa fa-shopping-cart"></i></a>
                     </div>
                     <?php
                 }

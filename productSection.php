@@ -20,8 +20,8 @@ require('bdd.php');
                 <p>Catégorie : <?php echo $donnees['categorie'] ?> , prix : <?php echo $donnees['price'] ?>€</p>
             </td>
             <td class="col-8">
-                <a class="text-primary ml-5" href="modifierProduit.php?id_produit= <?php echo $donnees['id']; ?>">Modifier</a>
-                <a class="text-danger mx-2" href="supprimerProduit.php?id_produit= <?php echo $donnees['id']; ?>">Supprimer</a>
+                <a class="text-primary ml-5" href="modifierProduit.php?id_product= <?php echo $donnees['id']; ?>">Modifier</a>
+                <a class="text-danger mx-2" href="supprimerProduit.php?id_product= <?php echo $donnees['id']; ?>">Supprimer</a>
             </td>
         </tr>
         <?php

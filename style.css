@@ -1,11 +1,8 @@
-.incription,
-.connexion {
-    margin-top: 8%;
+.incription, .connexion {
     width: 50%;
 }
 
-.formInscription,
-.formConnexion {
+.formInscription, .formConnexion {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;

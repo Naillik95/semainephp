@@ -5,7 +5,7 @@ require('bdd.php');
 
 <h1 class="center">Section Catégorie</h1>
 <div class="text-right mr-5">
-    <a class="btn btn-outline-primary" href="ajouterCategorie.php">Ajouter une catégorie</a>
+    <a class="btn btn-outline-primary" href="addCategory.php">Ajouter une catégorie</a>
 </div>
 
 <table class="table table-striped my-5">
@@ -19,8 +19,8 @@ require('bdd.php');
                 <h4><?php echo $donnees['categorie'] ?></h4>
             </td>
             <td class="col-8">
-                <a class="text-primary ml-5" href="modifierCategorie.php?id_categorie= <?php echo $donnees['id']; ?>">Modifier</a>
-                <a class="text-danger mx-2" href="supprimerCategorie.php?id_categorie= <?php echo $donnees['id']; ?>">Supprimer</a>
+                <a class="text-primary ml-5" href="modifyCategory.php?id_categorie= <?php echo $donnees['id']; ?>">Modifier</a>
+                <a class="text-danger mx-2" href="deleteCategorie.php?id_categorie= <?php echo $donnees['id']; ?>">Supprimer</a>
             </td>
         </tr>
 <?php

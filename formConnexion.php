@@ -50,7 +50,7 @@ if (isset($_POST['emailConnexion'], $_POST['passwordConnexion'])) {
         $_SESSION['status'] = $resultat['status'];
         if ($_SESSION['status'] == 'a') {
             $reponse->fetch();
-            header('Location: admin.php');
+            header('Location: index.php');
         } else {
             header('Location: index.php');
         }

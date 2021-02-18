@@ -18,8 +18,8 @@ require('bdd.php');
                 <p>Status : <?php echo $donnees['status']?></p>
             </td>
             <td class="col-8">
-                <a class="text-primary ml-5" href="modifierUser.php?id_user= <?php echo $donnees['id']; ?>">Modifier</a>
-                <a class="text-danger mx-2" href="supprimerUser.php?id_user= <?php echo $donnees['id']; ?>">Supprimer</a>
+                <a class="text-primary ml-5" href="modifyUser.php?id_user= <?php echo $donnees['id']; ?>">Modifier</a>
+                <a class="text-danger mx-2" href="deleteUser.php?id_user= <?php echo $donnees['id']; ?>">Supprimer</a>
             </td>
         </tr>
         <?php

@@ -32,19 +32,26 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="all.php">Tous les articles</a>
-                        <a class="dropdown-item" href="moovies.php">Films</a>
-                        <a class="dropdown-item" href="series.php">Series</a>
-                        <a class="dropdown-item" href="games.php">Jeux</a>
-                        <a class="dropdown-item" href="mangas.php">Mangas</a>
+                        <?php
+                        require_once('bdd.php');
+                        $query = $bdd->prepare("SELECT categorie FROM categorie");
+                        $query->execute();
+                        $data = $query->fetchAll();
+                        for ($i = 0; $i < count($data); $i++) {
+                            $element = $data[$i]["categorie"];
+                            echo "<a class='dropdown-item' href='$element.php'>$element</a>";
+                        }
+                        ?>
                     </div>
                 </li>
-                
+
                 <li class="nav-item">
-                    <a class="nav-link" href="histCommande.php">Historiques</a>
+                    <a class="nav-link" href="histCommande.php">Historique</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item align-self-center">
                     <form method="post" action="formDeconnexion.php">
-                        <input type="submit" name="submit" class="deconnexion btn btn-outline-primary" value="Se déconnecter">
+                        <input type="submit" name="submit" class="deconnexion btn btn-sm btn-outline-primary"
+                               value="Se déconnecter">
                     </form>
                 </li>
             </ul>

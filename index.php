@@ -13,7 +13,7 @@ require('session.php');
 <body>
 
 <div>
-    <img src="img/fondAccueil.jpg" width="100%">
+    <img src="img/fond.jpg" width="100%">
 </div>
 
 <h1 class="center font-weight-bold">TOP VENTE</h1>

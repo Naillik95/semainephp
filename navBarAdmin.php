@@ -32,16 +32,19 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="all.php">Tous les articles</a>
-                        <a class="dropdown-item" href="moovies.php">Films</a>
-                        <a class="dropdown-item" href="series.php">Series</a>
-                        <a class="dropdown-item" href="games.php">Jeux</a>
-                        <a class="dropdown-item" href="mangas.php">Mangas</a>
+                        <?php
+                        require_once('bdd.php');
+                        $query = $bdd->prepare("SELECT categorie FROM categorie");
+                        $query->execute();
+                        $data = $query->fetchAll();
+                        for ($i = 0; $i < count($data); $i++) {
+                            $element = $data[$i]["categorie"];
+                            echo "<a class='dropdown-item' href='$element.php'>$element</a>";
+                        }
+                        ?>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="navBar.php">Déconnexion</a>
-                </li>
-                <li class="nav-item active">
+                <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="admin.php" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tableau de Bord</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -50,9 +53,10 @@
                         <a class="dropdown-item" href="userSection.php">Partie Utilisateur</a>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item align-self-center">
                     <form method="post" action="formDeconnexion.php">
-                        <input type="submit" class="btn btn-outline-primary my-2 my-sm-0" name="submit" value="Se déconnecter">
+                        <input type="submit" class="btn btn-sm btn-outline-primary my-2 my-sm-0" name="submit"
+                               value="Se déconnecter">
                     </form>
                 </li>
             </ul>

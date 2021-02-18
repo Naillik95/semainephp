@@ -39,16 +39,13 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ajoutP.php">Ajouter un produit</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="navBar.php">Déconnexion</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link dropdown-toggle" href="admin.php" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tableau de Bord</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="">Partie Produit</a>
+                        <a class="dropdown-item" href="productSection.php">Partie Produit</a>
                         <a class="dropdown-item" href="categorySection.php">Partie Catégorie</a>
                         <a class="dropdown-item" href="">Partie Utilisateur</a>
                     </div>

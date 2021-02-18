@@ -123,10 +123,6 @@ for ($i = 0; $i < count($data); $i++) {
         HTML;
 }
 
-                <div class="">
-                    <img src="img/le_jeu_de_la_dame.jpg" >
-                    <span class=""></span>
-                    <div class="">
 ?>
     </div>   
     <h1 class="center">Nos Séries</h1>
@@ -134,6 +130,7 @@ for ($i = 0; $i < count($data); $i++) {
     <?php
 
 $query = $bdd->prepare("SELECT p.id, price, name, c.categorie FROM product as p, categorie as c WHERE p.categorie LIKE c.id AND c.categorie LIKE 'Serie'");
+
 $query->execute();
 
 $data = $query->fetchAll();

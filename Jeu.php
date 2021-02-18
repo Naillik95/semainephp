@@ -19,33 +19,37 @@ require('session.php');
 <body>
 
 <div class="box">
-            <div class="border">
-                <div class="">
-                    <img src="img/Fifa_2021.jpg" >
-                    <div class="">
-                        <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
-                    </div>
-                    <p>FIFA 21<br><b>60€</b></p>
-                </div>
-            </div>
+<?php
 
-            <div class="border">
-                <div class="">
-                    <img src="img/smash_bross.jpg" >
-                    <span class=""></span>
-                    <div class="">
-                        <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
-                    </div>
+$query = $bdd->prepare("SELECT p.id, price, name, c.categorie FROM product as p, categorie as c WHERE p.categorie LIKE c.id AND c.categorie LIKE 'Jeu'");
+
+$query->execute();
+
+$data = $query->fetchAll();
+
+
+
+for ($i = 0; $i < count($data); $i++) {
+    $element = $data[$i]["categorie"];
+    $name = $data[$i]["name"];
+    $price = $data[$i]["price"];
+    $id = $data[$i]["id"];
+
+    $replace = str_replace(" ", "_", $name);
+    echo <<<HTML
+        <div class="border">
+            <div>
+                <img src="img/$replace.jpg">
+                <div>
+                   <a href="cart?id=$id.php" class="button black"> Acheter <i class="fa fa-shopping-cart"></i></a>
                 </div>
-                <p>Smash Bross<br><b>60€</b></p>
+                <p>$name<br><b>$price €</b></p>
             </div>
-            <div class="border">
-                <img src="img/Call_of_duty.jpg" >
-                <div class="">
-                    <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
-                </div>
-                <p>Call Of Duty : Modern Warfare<br><b>60€</b></p>
-            </div>
+        </div>
+        HTML;
+}
+
+?>
         </div>
 
 </body>

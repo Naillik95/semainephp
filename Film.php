@@ -19,33 +19,39 @@ require('session.php');
 <body>
 
 <div class="box">
-            <div class="border">
-                <div class="">
-                    <img src="img/the_old_guard.jpg" >
-                    <div class="">
-                        <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
-                    </div>
-                    <p>The Old Guard<br><b>30€</b></p>
-                </div>
-            </div>
+<?php
 
-            <div class="border">
-                <div class="">
-                    <img src="img/mr_&_mme_Smith.jpg" >
-                    <span class=""></span>
-                    <div class="">
-                        <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
-                    </div>
+require_once('bdd.php');
+
+$query = $bdd->prepare("SELECT p.id, price, name, c.categorie FROM product as p, categorie as c WHERE p.categorie LIKE c.id AND c.categorie LIKE 'film'");
+
+$query->execute();
+
+$data = $query->fetchAll();
+
+
+
+for ($i = 0; $i < count($data); $i++) {
+    $element = $data[$i]["categorie"];
+    $name = $data[$i]["name"];
+    $price = $data[$i]["price"];
+    $id = $data[$i]["id"];
+
+    $replace = str_replace(" ", "_", $name);
+    echo <<<HTML
+        <div class="border">
+            <div>
+                <img src="img/$replace.jpg">
+                <div>
+                   <a href="cart?id=$id.php" class="button black"> Acheter <i class="fa fa-shopping-cart"></i></a>
                 </div>
-                <p>Mr & Mme Smith<br><b>30€</b></p>
+                <p>$name<br><b>$price €</b></p>
             </div>
-            <div class="border">
-                <img src="img/mirage.jpg" >
-                <div class="">
-                    <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
-                </div>
-                <p>Mirage<br><b>30€</b></p>
-            </div>
+        </div>
+        HTML;
+}
+
+?>
         </div>
 
 </body>

@@ -6,9 +6,12 @@ $reponse = $bdd->query('SELECT id, firstname, lastname, email, status FROM user 
 $donnees = $reponse->fetch();
 ?>
 
+    <h2 class="center mb-5">Modification de l'utilisateur</h2>
+
     <form method="post" action="#">
-        <input type="text" name="status" value="<?php echo $donnees['status'] ?>">
-        <input class="btn btn-primary" type="submit" value="modifier">
+        <label for="modifyStatusUser" class="ml-5">Status de l'utilisateur :</label>
+        <input type="text" id="modifyStatusUser" name="status" value="<?php echo $donnees['status'] ?>"><br><br>
+        <input class="btn btn-primary ml-5" type="submit" value="Modifier">
     </form>
 
 <?php

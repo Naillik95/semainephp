@@ -8,9 +8,14 @@ $rep = $bdd->query('SELECT id, categorie FROM categorie');
 $donnees = $reponse->fetch();
 ?>
 
+    <h2 class="center mb-5">Modification du produit</h2>
+
     <form method="post" action="#">
-        <input type="text" name="name" value="<?php echo $donnees['name'] ?>">
-        <input type="text" name="price" value="<?php echo $donnees['price'] ?>">
+        <label for="modifyNameProduct" class="ml-5">Nom du produit :</label>
+        <input type="text" id="modifyNameProduct" name="name" value="<?php echo $donnees['name'] ?>"><br><br>
+        <label for="modifyPriceProduct" class="ml-5">Prix du produit :</label>
+        <input type="text" id="modifyPriceProduct" name="price" value="<?php echo $donnees['price'] ?>"><br><br>
+        <label class="ml-5">Catégorie du produit :</label>
         <select name="categorie">
             <?php
             while ($donnee = $rep->fetch()) {
@@ -19,9 +24,8 @@ $donnees = $reponse->fetch();
                 <?php
             }
             ?>
-        </select>
-
-        <input class="btn btn-primary" type="submit" value="modifier">
+        </select><br><br>
+        <input class="btn btn-primary ml-5" type="submit" value="Modifier">
     </form>
 
 <?php

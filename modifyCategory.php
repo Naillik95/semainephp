@@ -6,9 +6,12 @@ $reponse = $bdd->query('SELECT id, categorie FROM categorie WHERE id = "' . $_GE
 $donnees = $reponse->fetch();
 ?>
 
+    <h2 class="center mb-5">Mofification de la catégorie</h2>
+
     <form method="post" action="#">
-        <input type="text" name="categorie" value="<?php echo $donnees['categorie'] ?>">
-        <input class="btn btn-primary" type="submit" value="modifier">
+        <label for="modifyNameCategory" class="ml-5">Nom de la catégorie :</label>
+        <input type="text" id="modifyNameCategory" name="categorie" value="<?php echo $donnees['categorie'] ?>"><br><br>
+        <input class="btn btn-primary ml-5" type="submit" value="Modifier">
     </form>
 
 <?php

@@ -5,11 +5,12 @@ require('bdd.php');
 $reponse = $bdd->query('SELECT id, categorie FROM categorie');
 ?>
 
-    <h2 class="center">Ajout du produit</h2>
-    <form method="post" action="#">
-        <label for="titre" class="ml-5">Nom du produit :</label>
-        <input type="text" name="name" required> <br><br>
+    <h2 class="center mb-5">Ajout du produit</h2>
 
+    <form method="post" action="#">
+        <p class="ml-5">Quel produit voulez-vous ajouter ?</p>
+        <label for="addNameProduct" class="ml-5">Nom du produit :</label>
+        <input type="text" id="addNameProduct" name="name" required> <br><br>
         <p class="ml-5">Catégorie du produit :
             <select name="categorie">
                 <?php
@@ -22,9 +23,8 @@ $reponse = $bdd->query('SELECT id, categorie FROM categorie');
             </select>
         </p>
         <br>
-
-        <label for="prix" class="ml-5">Prix du produit :</label>
-        <input type="text" name="price" required><br><br>
+        <label for="addPriceProduct" class="ml-5">Prix du produit :</label>
+        <input type="text" id="addPriceProduct" name="price" required><br><br>
 
         <input type="submit" class="ml-5 btn btn-primary" value="Ajouter le produit">
     </form>

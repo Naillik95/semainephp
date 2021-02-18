@@ -6,9 +6,11 @@ $reponse = $bdd->query('SELECT id, firstname, lastname, email, status FROM user 
 $donnees = $reponse->fetch();
 ?>
 
+    <h2 class="center mb-5">Suppression de l'utilisateur</h2>
+
     <form method="post" action="#">
-        <p>Etes vous sûr de bien vouloir supprimer cet utilisateur : <?php echo $donnees['firstname']?> <?php echo $donnees['lastname']?>?</p>
-        <input name="user" class="btn btn-danger" type="submit" value="Supprimer">
+        <p class="ml-5">Etes vous sûr de bien vouloir supprimer cet utilisateur : <?php echo $donnees['firstname']?> <?php echo $donnees['lastname']?> ?</p>
+        <input name="user" class="btn btn-danger ml-5" type="submit" value="Supprimer">
     </form>
 
 <?php

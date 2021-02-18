@@ -6,9 +6,11 @@ $reponse = $bdd->query('SELECT id, categorie FROM categorie WHERE id = "' . $_GE
 $donnees = $reponse->fetch();
 ?>
 
+    <h2 class="center mb-5">Suppression de la catégorie</h2>
+
     <form method="post" action="#">
-        <p>Etes vous sûr de bien vouloir supprimer cette catégorie : <?php echo $donnees['categorie'] ?> ?</p>
-        <input name="categorie" class="btn btn-danger" type="submit" value="Supprimer">
+        <p class="ml-5">Etes vous sûr de bien vouloir supprimer cette catégorie : <?php echo $donnees['categorie'] ?> ?</p>
+        <input name="categorie" class="btn btn-danger ml-5" type="submit" value="Supprimer">
     </form>
 
 <?php

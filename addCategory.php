@@ -3,12 +3,12 @@ require('session.php');
 require('bdd.php');
 ?>
 
-    <h2 class="center">Ajout d'une catégorie</h2>
+    <h2 class="center mb-5">Ajout d'une catégorie</h2>
 
     <form method="post" action="#">
         <p class="ml-5">Quelle catégorie voulez-vous ajouter ?</p>
-        <input type="text" name="categorie" class="ml-5">
-        <input class="btn btn-primary" type="submit" value="Ajouter">
+        <input type="text" name="categorie" class="ml-5"><br><br>
+        <input class="btn btn-primary ml-5" type="submit" value="Ajouter">
     </form>
 
 <?php

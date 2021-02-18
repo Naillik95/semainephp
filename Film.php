@@ -19,41 +19,40 @@ require('session.php');
 <body>
 
 <div class="box">
-<?php
+    <?php
+    require_once('bdd.php');
+    $query = $bdd->prepare("SELECT p.id, price, name, c.categorie FROM product as p, categorie as c WHERE p.categorie LIKE c.id AND c.categorie LIKE 'film'");
+    $query->execute();
+    $data = $query->fetchAll();
 
-require_once('bdd.php');
+    for ($i = 0; $i < count($data); $i++) {
+        $element = $data[$i]["categorie"];
+        $name = $data[$i]["name"];
+        $price = $data[$i]["price"];
+        $id = $data[$i]["id"];
 
-$query = $bdd->prepare("SELECT p.id, price, name, c.categorie FROM product as p, categorie as c WHERE p.categorie LIKE c.id AND c.categorie LIKE 'film'");
-
-$query->execute();
-
-$data = $query->fetchAll();
-
-
-
-for ($i = 0; $i < count($data); $i++) {
-    $element = $data[$i]["categorie"];
-    $name = $data[$i]["name"];
-    $price = $data[$i]["price"];
-    $id = $data[$i]["id"];
-
-    $replace = str_replace(" ", "_", $name);
-    echo <<<HTML
+        $replace = str_replace(" ", "_", $name);
+        ?>
         <div class="border">
             <div>
-                <img src="img/$replace.jpg">
-                <div>
-                   <a href="cart?id=$id.php" class="button black"> Acheter <i class="fa fa-shopping-cart"></i></a>
-                </div>
-                <p>$name<br><b>$price €</b></p>
+                <img src="img/<?php echo $replace ?>.jpg" height="250px" width="190px">
+                <?php
+                if ($_SESSION['status'] == 'c') {
+                    ?>
+                    <div>
+                        <a href="cart?id=<?php echo $id ?>.php" class="btn btn-primary mt-2"> Acheter <i
+                                    class="fa fa-shopping-cart"></i></a>
+                    </div>
+                    <?php
+                }
+                ?>
+                <p><?php echo $name ?><br><b> <?php echo $price ?>€</b></p>
             </div>
         </div>
-        HTML;
-}
-
-?>
-        </div>
+        <?php
+    }
+    ?>
+</div>
 
 </body>
-
 </html>

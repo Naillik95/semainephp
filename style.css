@@ -31,20 +31,10 @@
     grid-template-columns: 350px 350px 350px;
     align-items: center;
     justify-content: space-between;
-    margin-top: 150px;
+    margin-top: 4%;
+    margin-bottom: 3%;
     margin-left: 230px;
     text-align: center;
-}
-
-.button {
-    border-radius: 5px;
-    background-color: blue;
-    color: white;
-}
-
-.button:hover {
-    background-color: white;
-    color: black;
 }
 
 .border {
@@ -53,7 +43,7 @@
 
 .center {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 7%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 

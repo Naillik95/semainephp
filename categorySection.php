@@ -10,10 +10,10 @@ require('bdd.php');
 
 <table class="table table-striped my-5">
     <tbody>
-<?php
+    <?php
     $reponse = $bdd->query('SELECT id, categorie FROM categorie');
     while ($donnees = $reponse->fetch()) {
-?>
+        ?>
         <tr class="row mx-5">
             <td class="col-4">
                 <h4><?php echo $donnees['categorie'] ?></h4>
@@ -23,8 +23,8 @@ require('bdd.php');
                 <a class="text-danger mx-2" href="deleteCategorie.php?id_categorie= <?php echo $donnees['id']; ?>">Supprimer</a>
             </td>
         </tr>
-<?php
+        <?php
     }
-?>
+    ?>
     </tbody>
 </table>

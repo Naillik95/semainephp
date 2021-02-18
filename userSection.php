@@ -13,9 +13,9 @@ require('bdd.php');
         ?>
         <tr class="row mx-5">
             <td class="col-4">
-                <h4><?php echo $donnees['firstname'] ?> <?php echo $donnees['lastname'] ?></h4>
-                <p>Email : <?php echo $donnees['email']?></p>
-                <p>Status : <?php echo $donnees['status']?></p>
+                <h4><?php echo $donnees['firstname'] ?><?php echo $donnees['lastname'] ?></h4>
+                <p>Email : <?php echo $donnees['email'] ?></p>
+                <p>Status : <?php echo $donnees['status'] ?></p>
             </td>
             <td class="col-8">
                 <a class="text-primary ml-5" href="modifyUser.php?id_user= <?php echo $donnees['id']; ?>">Modifier</a>

@@ -40,11 +40,20 @@ require('session.php');
             <div>
                 <img src="img/<?php echo $replace ?>.jpg" height="250px" width="190px">
                 <?php
-                if ($_SESSION['status'] == 'c') {
+                if (!empty($_SESSION)) {
+                    if ($_SESSION['status'] == 'c') {
+                        ?>
+                        <div>
+                            <a href="cart?id=<?php echo $id ?>.php" class="btn btn-primary mt-2"> Acheter <i
+                                        class="fa fa-shopping-cart"></i></a>
+                        </div>
+                        <?php
+                    }
+                } elseif (empty($_SESSION)) {
                     ?>
                     <div>
                         <a href="cart?id=<?php echo $id ?>.php" class="btn btn-primary mt-2"> Acheter <i
-                                class="fa fa-shopping-cart"></i></a>
+                                    class="fa fa-shopping-cart"></i></a>
                     </div>
                     <?php
                 }

@@ -21,7 +21,7 @@ require('session.php');
 <div class="box">
             <div class="border">
                 <div class="">
-                    <img src="img/one piece.jpg" >
+                    <img src="img/one_piece.jpg" >
                     <div class="">
                         <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
                     </div>
@@ -31,7 +31,7 @@ require('session.php');
 
             <div class="border">
                 <div class="">
-                    <img src="img/attack on titant.jpg" >
+                    <img src="img/attack_on_titant.jpg" >
                     <span class=""></span>
                     <div class="">
                         <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
@@ -40,7 +40,7 @@ require('session.php');
                 <p>L'attaque des titans<br><b>8€</b></p>
             </div>
             <div class="border">
-                <img src="img/hight school.jpg" >
+                <img src="img/hight_school.jpg" >
                 <div class="">
                     <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
                 </div>

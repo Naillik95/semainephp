@@ -21,7 +21,7 @@ require('session.php');
 <div class="box">
             <div class="border">
                 <div class="">
-                    <img src="img/the old guard.jpg" >
+                    <img src="img/the_old_guard.jpg" >
                     <div class="">
                         <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
                     </div>
@@ -31,7 +31,7 @@ require('session.php');
 
             <div class="border">
                 <div class="">
-                    <img src="img/mr & mme Smith.jpg" >
+                    <img src="img/mr_&_mme_Smith.jpg" >
                     <span class=""></span>
                     <div class="">
                         <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>

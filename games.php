@@ -21,7 +21,7 @@ require('session.php');
 <div class="box">
             <div class="border">
                 <div class="">
-                    <img src="img/Fifa 2021.jpg" >
+                    <img src="img/Fifa_2021.jpg" >
                     <div class="">
                         <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
                     </div>
@@ -31,7 +31,7 @@ require('session.php');
 
             <div class="border">
                 <div class="">
-                    <img src="img/smash bross.jpg" >
+                    <img src="img/smash_bross.jpg" >
                     <span class=""></span>
                     <div class="">
                         <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
@@ -40,7 +40,7 @@ require('session.php');
                 <p>Smash Bross<br><b>60€</b></p>
             </div>
             <div class="border">
-                <img src="img/Call of duty.jpg" >
+                <img src="img/Call_of_duty.jpg" >
                 <div class="">
                     <button class="button black"> Acheter <i class="fa fa-shopping-cart"></i></button>
                 </div>

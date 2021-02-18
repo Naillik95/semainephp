@@ -49,8 +49,8 @@
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tableau de Bord</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="">Partie Produit</a>
-                        <button class="dropdown-item" id="films">Partie Catégorie</button>
-                        <button class="dropdown-item" id="series">Partie Utilisateur</button>
+                        <a class="dropdown-item" href="categorySection.php">Partie Catégorie</a>
+                        <a class="dropdown-item" href="">Partie Utilisateur</a>
                     </div>
                 </li>
                 <li class="nav-item">

@@ -47,7 +47,7 @@ while ($cat = $q->fetch()) {
                         if ($_SESSION['status'] == 'c') {
                             ?>
                             <div>
-                                <a href="cart?id=<?php echo $id ?>.php" class="btn btn-primary mt-2"> Acheter <i
+                                <a href="cart.php?id=<?php echo $id ?>" class="btn btn-primary mt-2 button"> Acheter <i
                                             class="fa fa-shopping-cart"></i></a>
                             </div>
                             <?php
@@ -55,7 +55,7 @@ while ($cat = $q->fetch()) {
                     } elseif (empty($_SESSION)) {
                         ?>
                         <div>
-                            <a href="cart?id=<?php echo $id ?>.php" class="btn btn-primary mt-2"> Acheter <i
+                            <a href="cart.php?id=<?php echo $id ?>" class="btn btn-primary mt-2 button"> Acheter <i
                                         class="fa fa-shopping-cart"></i></a>
                         </div>
                         <?php

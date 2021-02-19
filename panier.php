@@ -1,8 +1,9 @@
+// fichier qui ne sert plus mais à garder au cas où
+// permet d'ajouter au panier quand on est connecté
+
 <?php
 require('session.php');
 require('bdd.php');
-
-// recuprer info produit
 
 if (isset($_GET['id'])) {
     $id_product = $_GET['id'];
@@ -23,11 +24,6 @@ if (isset($_GET['id'])) {
 }
 
 echo "<script> location.replace('all.php'); </script>";
-
-// ajouter produit au panier
-
-//retourner sur all
-
 
 ?>
 

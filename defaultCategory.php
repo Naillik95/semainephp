@@ -2,22 +2,6 @@
 require('session.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Jeux</title>
-</head>
-
-<body>
-
 <div class="box">
     <?php
     $id_category = $_GET['id_category'];
@@ -65,6 +49,3 @@ require('session.php');
     }
     ?>
 </div>
-
-</body>
-</html>

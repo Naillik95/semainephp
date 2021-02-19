@@ -47,7 +47,7 @@ echo "<hr></br>";
         <tr class="row mx-5">
             <td class="col-4">
                 <p>Nom de l'article : <?php echo $data["name"] ?></p>
-                <p>Prix : <?php echo $data["price"] ?></p>
+                <p>Prix : <?php echo $data["price"] ?>€</p>
             </td>
             <td>
                 <a href='deleteProductPanier.php?id=<?php echo $key ?>' class='text-danger'> Supprimer</a>

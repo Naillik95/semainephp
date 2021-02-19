@@ -39,10 +39,11 @@
                         for ($i = 0; $i < count($data); $i++) {
                             $element = $data[$i]["categorie"];
                             $id = $data[$i]['id'];
-                        ?>
-                        <a class='dropdown-item' href='defaultCategory.php?id_category=<?php echo $id ?>'><?php echo $element ?></a>
-                        <?php
-                           // echo "<a class='dropdown-item' href='defaultCategory.php?id_category='". echo $data[$i]['id'].">$element</a>";
+                            ?>
+                            <a class='dropdown-item'
+                               href='defaultCategory.php?id_category=<?php echo $id ?>'><?php echo $element ?></a>
+                            <?php
+                            // echo "<a class='dropdown-item' href='defaultCategory.php?id_category='". echo $data[$i]['id'].">$element</a>";
                         }
                         ?>
                     </div>
@@ -77,18 +78,35 @@
                 <div class="modal-body">
                     <!-- TESTS POUR LA FENETRE MODALE -->
                     <section class="container content-section">
-                        <div class="cart-items"></div>
-                        <div class="cart-total"></div>
+                        <?php
+                        if (!empty($_SESSION)) {
+                            $rep = $bdd->query('SELECT prod.name, prod.price, pan.id as panier_id FROM panier as pan, product as prod WHERE pan.id_product = prod.id AND pan.id_user = "' . $_SESSION['id'] . '"');
+                            while ($donnee = $rep->fetch()) {
+                                ?>
+                                <p><?php echo $donnee['name'] ?> - <?php echo $donnee['price'] ?>€ <a href="deleteProductPanier.php?id=<?php echo $donnee['panier_id'] ?>" class="text-danger"> Supprimer</a></p>
+                                <?php
+                            }
+                        }
+                        ?>
                     </section>
                 </div>
                 <div class="modal-footer">
                     <!-- Pour le total  -->
                     <div id="totalCount">
                         <span class="cart-total-title font-weight-bold">Total</span>
-                        <span class="cart-total-price">€</span>
+                        <?php
+                        if (!empty($_SESSION)) {
+                            $rep = $bdd->query('SELECT SUM(prod.price) as total FROM panier as pan, product as prod WHERE pan.id_product = prod.id AND pan.id_user = "' . $_SESSION['id'] . '"');
+                            $donnee = $rep->fetch()
+                            ?>
+                            <span class="cart-total-price"><?php echo $donnee['total'] ?>€</span>
+                            <?php
+                        }
+
+                        ?>
                     </div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button class="btn btn-primary btn-purchase" type="button">Acheter</button>
+                    <a class="btn btn-primary btn-purchase" type="button" href="deleteProductPanier.php?action=paye">Acheter</a>
                 </div>
             </div>
         </div>

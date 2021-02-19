@@ -2,4 +2,4 @@
 require('session.php');
 ?>
 
-<h1> Historique</h1>
+<h1 class="center"> Historique des commandes</h1>

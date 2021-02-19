@@ -43,7 +43,7 @@ while ($cat = $q->fetch()) {
                 <div>
                     <img src="img/<?php echo $replace ?>.jpg" height="250px" width="190px">
                     <?php
-                    if (!empty($_SESSION)) {
+                    if (isset($_SESSION['status'])) {
                         if ($_SESSION['status'] == 'c') {
                             ?>
                             <div>
@@ -52,7 +52,7 @@ while ($cat = $q->fetch()) {
                             </div>
                             <?php
                         }
-                    } elseif (empty($_SESSION)) {
+                    } elseif (empty($_SESSION['status']) || ($_SESSION['panier'])) {
                         ?>
                         <div>
                             <a href="cart.php?id=<?php echo $id ?>" class="btn btn-primary mt-2 button"> Acheter <i

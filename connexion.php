@@ -3,54 +3,54 @@ include("session.php");
 require("bdd.php");
 ?>
 
-<p id="message" class="center"></p>
-<div class="container d-flex">
-    <div class="incription">
-        <h1 class="center font-weight-bold mb-4">Inscription</h1>
-        <form class="formInscription" action="#" method="post">
-            <div class="form-group">
-                <label>Nom</label>
-                <input type="text" class="form-control" name="nom" id="lastName" required>
-            </div>
-            <div class="form-group">
-                <label>Prénom</label>
-                <input type="text" class="form-control" name="prenom" id="firstName" required>
-            </div>
+    <p id="message" class="center"></p>
+    <div class="container d-flex">
+        <div class="incription">
+            <h1 class="center font-weight-bold mb-4">Inscription</h1>
+            <form class="formInscription" action="#" method="post">
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" class="form-control" name="nom" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label>Prénom</label>
+                    <input type="text" class="form-control" name="prenom" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label>Adresse Mail</label>
+                    <input type="email" class="form-control" name="emailInscription" id="emailInscription"
+                           placeholder="utilisateur@domaine.fr" required>
+                </div>
+                <div class="form-group">
+                    <label>Mot de passe</label>
+                    <input type="password" class="form-control" name="passwordInscription" id="passwordInscription"
+                           required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary submit" value="S'inscrire"
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="connexion">
+        <h1 class="center font-weight-bold mb-4">Connexion</h1>
+        <form class="formConnexion" action="#" method="post">
             <div class="form-group">
                 <label>Adresse Mail</label>
-                <input type="email" class="form-control" name="emailInscription" id="emailInscription"
-                       placeholder="utilisateur@domaine.fr" required>
+                <input type="text" class="form-control" name="emailConnexion" id="emailConnexion" required
+                       placeholder="Email">
             </div>
             <div class="form-group">
                 <label>Mot de passe</label>
-                <input type="password" class="form-control" name="passwordInscription" id="passwordInscription"
-                       required>
+                <input type="password" class="form-control" name="passwordConnexion" id="passwordConnexion" required
+                       placeholder="Mot de passe">
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary submit" value="S'inscrire"
+                <input type="submit" class="btn btn-primary submit" value="Se connecter"
             </div>
         </form>
     </div>
-</div>
-<div class="connexion">
-    <h1 class="center font-weight-bold mb-4">Connexion</h1>
-    <form class="formConnexion" action="#" method="post">
-        <div class="form-group">
-            <label>Adresse Mail</label>
-            <input type="text" class="form-control" name="emailConnexion" id="emailConnexion" required
-                   placeholder="Email">
-        </div>
-        <div class="form-group">
-            <label>Mot de passe</label>
-            <input type="password" class="form-control" name="passwordConnexion" id="passwordConnexion" required
-                   placeholder="Mot de passe">
-        </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary submit" value="Se connecter"
-        </div>
-    </form>
-</div>
-</div>
+    </div>
 
 <?php
 $message = "";
@@ -90,22 +90,26 @@ if (isset($_POST['nom'], $_POST['prenom'], $_POST['emailInscription'], $_POST['p
 //  Récupération de l'utilisateur et de son pass hashé
 if (isset($_POST['emailConnexion'], $_POST['passwordConnexion'])) {
     $emailConnexion = $_POST['emailConnexion'];
-    $reponse = $bdd->prepare('SELECT email, password, firstname, status FROM user WHERE email = :email');
+    $reponse = $bdd->prepare('SELECT id, email, password, firstname, status FROM user WHERE email = :email');
     $reponse->execute(array(
         ':email' => $emailConnexion));
     $resultat = $reponse->fetch();
 
     // Comparaison du pass envoyé via le formulaire avec la base
-    $isPasswordCorrect = password_verify($_POST['passwordConnexion'], $resultat['password']);
+    if ($resultat) {
+        $isPasswordCorrect = password_verify($_POST['passwordConnexion'], $resultat['password']);
 
-    if ($isPasswordCorrect) {
-        $_SESSION['email'] = $resultat['email'];
-        $_SESSION['firstname'] = $resultat['firstname'];
-        $_SESSION['status'] = $resultat['status'];
-        echo "<script> location.replace('index.php'); </script>";
+        if ($isPasswordCorrect) {
+            $_SESSION['id'] = $resultat['id'];
+            $_SESSION['email'] = $resultat['email'];
+            $_SESSION['firstname'] = $resultat['firstname'];
+            $_SESSION['status'] = $resultat['status'];
+            echo "<script> location.replace('index.php'); </script>";
+        }
     } else {
         $message = "Mauvais identifiant ou mot de passe !";
     }
 }
+
 echo '<script>document.getElementById("message").innerHTML = "' . $message . '"</script>';
 ?>

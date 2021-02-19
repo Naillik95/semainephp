@@ -3,10 +3,10 @@ require('session.php');
 require_once('bdd.php');
 
 if (!empty($_GET["id"])) {
+        if (empty($_SESSION["panier"])) {
+            $_SESSION["panier"] = array();
+        }
 
-    if (empty($_SESSION["panier"])) {
-        $_SESSION["panier"] = array();
-    }
 
     $idArticle = $_GET["id"];
 
@@ -25,7 +25,9 @@ if (!empty($_GET["id"])) {
 
     array_push($_SESSION["panier"], $data["id"]);
 }
-
+if (empty($_SESSION["panier"])) {
+    $_SESSION["panier"] = array();
+}
 echo "<h1 class='center'>Mon panier</h1>";
 echo "<hr></br>";
 
@@ -58,6 +60,11 @@ echo "<hr></br>";
     </tbody>
 </table>
 <a class="btn btn-primary ml-5" href='all.php'>Retour</a>
+<?php
+if (!empty($_SESSION["panier"])) {
+    echo "<a class='btn btn-primary ml-5' href='deleteProductPanier.php?action=paye'>Commander</a>";
+}
+?>
 
 </body>
 

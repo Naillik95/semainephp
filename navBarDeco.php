@@ -58,59 +58,9 @@
                     </form>
                 </li>
             </ul>
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" data-toggle="modal"
-                    data-target="#exampleModalScrollable">Panier
-            </button>
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="cart.php">Panier</a>
         </div>
     </nav>
-
-    <!-- Modale -->
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Mon Panier</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- TESTS POUR LA FENETRE MODALE -->
-                    <section class="container content-section">
-                        <?php
-                        if (!empty($_SESSION)) {
-                            $rep = $bdd->query('SELECT prod.name, prod.price, pan.id as panier_id FROM panier as pan, product as prod WHERE pan.id_product = prod.id AND pan.id_user = "' . $_SESSION['id'] . '"');
-                            while ($donnee = $rep->fetch()) {
-                                ?>
-                                <p><?php echo $donnee['name'] ?> - <?php echo $donnee['price'] ?>€ <a href="deleteProductPanier.php?id=<?php echo $donnee['panier_id'] ?>" class="text-danger"> Supprimer</a></p>
-                                <?php
-                            }
-                        }
-                        ?>
-                    </section>
-                </div>
-                <div class="modal-footer">
-                    <!-- Pour le total  -->
-                    <div id="totalCount">
-                        <span class="cart-total-title font-weight-bold">Total</span>
-                        <?php
-                        if (!empty($_SESSION)) {
-                            $rep = $bdd->query('SELECT SUM(prod.price) as total FROM panier as pan, product as prod WHERE pan.id_product = prod.id AND pan.id_user = "' . $_SESSION['id'] . '"');
-                            $donnee = $rep->fetch()
-                            ?>
-                            <span class="cart-total-price"><?php echo $donnee['total'] ?>€</span>
-                            <?php
-                        }
-
-                        ?>
-                    </div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <a class="btn btn-primary btn-purchase" type="button" href="deleteProductPanier.php?action=paye">Acheter</a>
-                </div>
-            </div>
-        </div>
-    </div>
 </header>
 
 <!-- /container -->
